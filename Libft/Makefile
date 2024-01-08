@@ -6,7 +6,7 @@
 #    By: inmili <inmili@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/11 21:19:28 by ncolomer          #+#    #+#              #
-#    Updated: 2024/01/08 15:06:14 by inmili           ###   ########.fr        #
+#    Updated: 2024/01/08 20:28:03 by inmili           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c    \
 					ft_strnstr.c ft_tolower.c ft_bzero.c   ft_isascii.c ft_memcpy.c \
 					ft_memmove.c   ft_strdup.c  ft_strlen.c  ft_strrchr.c \
 					ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
-					ft_strjoin.c  
+					ft_strjoin.c  ft_strtrim.c
 OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc
