@@ -1,38 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/25 18:38:56 by ilyasNmili        #+#    #+#             */
-/*   Updated: 2024/01/07 15:51:20 by inmili           ###   ########.fr       */
+/*   Created: 2024/01/07 16:21:48 by inmili            #+#    #+#             */
+/*   Updated: 2024/01/07 17:14:44 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+size_t	ft_strlcpy(char	*dst, const char *src, size_t dstsize)
 {
-	char	ch;
-	int		size;
+	size_t	size_src;
 
-	ch = c;
-	size = ft_strlen(s);
-	while (--size >= 0)
+	size_src = 0;
+	while (*(src + size_src))
 	{
-		if (s[size] == ch)
-			return ((char *)s + size);
+		size_src++;
 	}
-	return (NULL);
+	while (*src && dstsize > 1)
+	{
+		*dst = *src;
+		dst++;
+		src++;
+		dstsize--;
+	}
+	*dst = '\0';
+	return (size_src);
 }
 /*
 int main(void)
 {
-	char s[] = "Ilyas Nmili";
-	char *p1 = ft_strrchr(s, 'y');
-	char *p2 = ft_strrchr(s,'z');
-	printf("%s\n", p1);
-	printf("%p\n", p2);	
+	char T1[]="ilyas";
+	char T2[]="Nmili";
+
+	printf("%zu\n",ft_strlcpy(T1,T2,4));
+	printf("%s\n",T1);
+	printf("%s",T2);
+	return (0);
 }
 */
