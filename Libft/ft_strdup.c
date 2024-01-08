@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/25 18:38:43 by ilyasNmili        #+#    #+#             */
-/*   Updated: 2024/01/08 17:33:33 by inmili           ###   ########.fr       */
+/*   Created: 2024/01/08 12:24:15 by inmili            #+#    #+#             */
+/*   Updated: 2024/01/08 18:03:52 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	*p1;
-	unsigned char	*p2;
+	char	*dst;
+	size_t	size;
+	size_t	i;
 
-	p1 = (unsigned char *)s1;
-	p2 = (unsigned char *)s2;
-	if (n == 0)
+	size = ft_strlen(s1);
+	i = 0;
+	dst = (char *)malloc((size + 1) * sizeof(*s1));
+	if (!dst)
 		return (0);
-	while (*p1 && *p2 && *p1 == *p2 && n > 1)
+	while (i < size)
 	{
-		p1++;
-		p2++;
-		n--;
+		dst[i] = s1[i];
+		i++;
 	}
-	return ((*p1 - *p2));
+	dst[i] = '\0';
+	return (dst);
 }
-/*
-int main(void)
-{
-	char *T1;
-	char *T2;
-	T1="teste";
-	T2="testex";
-	printf("%d",ft_strncmp(T1,T2,6));
-	return (0);
-}
-*/

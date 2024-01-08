@@ -6,7 +6,7 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 18:38:56 by ilyasNmili        #+#    #+#             */
-/*   Updated: 2024/01/07 15:51:20 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/08 16:37:08 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	ch;
-	int		size;
+	unsigned char	ch;
+	int				size;
+	char			*p;
 
-	ch = c;
-	size = ft_strlen(s);
-	while (--size >= 0)
+	ch = (unsigned char)c;
+	p = (char *)s;
+	size = (int)ft_strlen(s);
+	while (size >= 0)
 	{
-		if (s[size] == ch)
-			return ((char *)s + size);
+		if (*(p + size) == ch)
+			return ((p + size));
+		size--;
 	}
-	return (NULL);
+	return (0);
 }
 /*
 int main(void)

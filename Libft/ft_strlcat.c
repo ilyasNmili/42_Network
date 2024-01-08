@@ -6,30 +6,20 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 17:15:16 by inmili            #+#    #+#             */
-/*   Updated: 2024/01/07 21:21:19 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/08 14:57:36 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_size(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-size_t	strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	size_dest;
 	size_t	size_src;
 
-	size_dest = ft_size(dst);
-	size_src = ft_size(src);
+	size_dest = ft_strlen(dst);
+	size_src = ft_strlen(src);
 	if (dstsize <= size_dest)
 		return (dstsize + size_src);
 	i = 0;
