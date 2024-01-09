@@ -6,7 +6,7 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:14:22 by inmili            #+#    #+#             */
-/*   Updated: 2024/01/09 15:33:04 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/09 17:59:11 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
-
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 #endif
