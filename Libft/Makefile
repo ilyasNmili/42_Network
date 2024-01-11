@@ -5,10 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: inmili <inmili@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/11 21:19:28 by ncolomer          #+#    #+#              #
-#    Updated: 2024/01/09 18:48:45 by inmili           ###   ########.fr        #
+#    Created: 2024/01/10 12:28:27 by inmili            #+#    #+#              #
+#    Updated: 2024/01/11 19:01:20 by inmili           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+CC 				= gcc
+RM              = rm -rf
+CFLAGS 			= -Wall -Wextra -Werror
+NAME			= libft.a
 
 SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c    \
 					ft_strlcat.c ft_strncmp.c ft_substr.c ft_atoi.c ft_isalpha.c \
@@ -18,29 +23,27 @@ SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c    \
 					ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
 					ft_strjoin.c  ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
 					ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-					ft_putnbr_fd.c
-OBJS			= $(SRCS:.c=.o)
+					ft_putnbr_fd.c 
 
-CC				= gcc
-RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I.
+SRCS_BONUS		= 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+					ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+					ft_lstclear_bonus.c ft_lstiter_bonus.c 
+	
+OBJS			= ${SRCS:.c=.o}
+B_OBJS			= ${SRCS_BONUS:.c=.o}
+%o: %c libft.h
+	${CC} -o $@ ${CFLAGS} -c $<
 
-NAME			= libft.a
+${NAME}:		${OBJS}
+				ar rcs ${NAME} ${OBJS}
 
-all:			$(NAME)
-
-$(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
-
+bonus:			${B_OBJS}
+				ar rcs ${NAME} ${B_OBJS}	
+all: 	${NAME}
 clean:
-				$(RM) $(OBJS)
+		${RM} ${OBJS} ${B_OBJS}
+fclean:	clean
+		${RM} ${NAME}
+re:		fclean all
 
-fclean:			clean
-				$(RM) $(NAME)
-
-re:				fclean $(NAME)
-
-# bonus:			$(OBJS) 
-# 				ar rcs $(NAME) $(OBJS)
-
-.PHONY:			all clean fclean re 
+.PHONY : all clean fclean re all bonus

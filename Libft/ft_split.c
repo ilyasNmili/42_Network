@@ -6,7 +6,7 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:16:32 by inmili            #+#    #+#             */
-/*   Updated: 2024/01/09 13:46:10 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/11 18:44:36 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,36 +74,20 @@ char	**ft_split(char const *s, char c)
 	ret[count_words(s, c)] = NULL;
 	return (ret);
 }
+/*
+int main(void) {
+    const char *inputString = "This is a test string";
+    char **resultArray = ft_split(inputString, ' ');
 
-// // Assuming ft_strsplit is defined elsewhere in your code
-// char **ft_strsplit(char const *s, char c);
-
-// // Helper function to free the memory allocated for the result of ft_strsplit
-// void free_strsplit_result(char **result) {
-//     char **ptr = result;
-//     while (*ptr) {
-//         free(*ptr);
-//         ptr++;
-//     }
-//     free(result);
-// }
-
-// int main(void) {
-//     const char *inputString = "This is a test string";
-//     char **resultArray = ft_split(inputString, ' ');
-
-//     if (resultArray != NULL) {
-//         printf("Split words:\n");
-//         // Print each word
-//         for (int i = 0; resultArray[i] != NULL; i++) {
-//             printf("%s\n", resultArray[i]);
-//         }
-
-//         // Free the memory allocated by ft_strsplit
-//         free_strsplit_result(resultArray);
-//     } else {
-//         printf("Memory allocation failed.\n");
-//     }
-
-//     return 0;
-// }
+    if (resultArray != NULL) {
+        printf("Split words:\n");
+        // Print each word
+        for (int i = 0; resultArray[i] != NULL; i++) {
+            printf("%s\n", resultArray[i]);
+        }
+        free_strsplit_result(resultArray);
+    } else {
+        printf("Memory allocation failed.\n");
+    }
+    return 0;
+}*/
