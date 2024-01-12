@@ -6,18 +6,13 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 18:42:38 by inmili            #+#    #+#             */
-/*   Updated: 2024/01/09 18:50:01 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/12 18:09:47 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-
-int	puissance(int n)
+static int	puissance(int n)
 {
 	int	p;
 
@@ -30,7 +25,7 @@ int	puissance(int n)
 	return (p);
 }
 
-int	size(int n)
+static int	size(int n)
 {
 	int	s;
 
@@ -65,7 +60,7 @@ void	ft_putnbr_fd(int n, int fd)
 			first_digit = n / puissance(s - 1);
 			n -= first_digit * puissance(s - 1);
 			s--;
-			ft_putchar(48 + first_digit, fd);
+			ft_putchar_fd(48 + first_digit, fd);
 		}
 	}
 }

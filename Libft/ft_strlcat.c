@@ -6,7 +6,7 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 17:15:16 by inmili            #+#    #+#             */
-/*   Updated: 2024/01/08 14:57:36 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/12 19:10:09 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	size_dest;
 	size_t	size_src;
 
+	if (!dst && src && !dstsize)
+		return (ft_strlen(src));
 	size_dest = ft_strlen(dst);
 	size_src = ft_strlen(src);
 	if (dstsize <= size_dest)

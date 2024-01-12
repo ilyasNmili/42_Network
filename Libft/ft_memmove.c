@@ -6,7 +6,7 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 10:34:39 by inmili            #+#    #+#             */
-/*   Updated: 2024/01/08 17:32:39 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/12 18:03:11 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,12 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	if (dst > src)
 	{
 		while (len--)
-		{
 			*(p + len) = *(s + len);
-		}
 	}
 	else
 	{
 		while (len--)
-		{
 			*p++ = *s++;
-		}
 	}
 	return (dst);
 }

@@ -6,11 +6,11 @@
 #    By: inmili <inmili@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 12:28:27 by inmili            #+#    #+#              #
-#    Updated: 2024/01/11 19:01:20 by inmili           ###   ########.fr        #
+#    Updated: 2024/01/12 17:12:38 by inmili           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC 				= gcc
+CC 				= cc
 RM              = rm -rf
 CFLAGS 			= -Wall -Wextra -Werror
 NAME			= libft.a
@@ -25,25 +25,28 @@ SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c    \
 					ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 					ft_putnbr_fd.c 
 
-SRCS_BONUS		= 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
-					ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-					ft_lstclear_bonus.c ft_lstiter_bonus.c 
-	
+SRCS_BONUS	= 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c ft_lstiter_bonus.c 
+
 OBJS			= ${SRCS:.c=.o}
 B_OBJS			= ${SRCS_BONUS:.c=.o}
-%o: %c libft.h
-	${CC} -o $@ ${CFLAGS} -c $<
 
-${NAME}:		${OBJS}
-				ar rcs ${NAME} ${OBJS}
-
-bonus:			${B_OBJS}
-				ar rcs ${NAME} ${B_OBJS}	
 all: 	${NAME}
+
+${NAME}:	${OBJS}
+
+%o: %c libft.h
+	${CC} ${CFLAGS} -c $< -o $@
+	ar rcs ${NAME} $@
+
+bonus:	${B_OBJS}
+
 clean:
-		${RM} ${OBJS} ${B_OBJS}
+	${RM} ${OBJS} ${B_OBJS}
+
 fclean:	clean
-		${RM} ${NAME}
-re:		fclean all
+	${RM} ${NAME}
+
+re:	fclean all
 
 .PHONY : all clean fclean re all bonus

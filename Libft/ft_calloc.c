@@ -6,7 +6,7 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:10:21 by inmili            #+#    #+#             */
-/*   Updated: 2024/01/08 12:23:52 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/12 17:16:50 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*p;
 
-	if (count < 0)
+	if ((long long)count < 0)
 		return (0);
 	p = malloc(count * size);
 	if (!p)

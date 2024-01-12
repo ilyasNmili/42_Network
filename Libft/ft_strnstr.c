@@ -6,7 +6,7 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 18:38:49 by ilyasNmili        #+#    #+#             */
-/*   Updated: 2024/01/07 16:04:33 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/12 19:43:12 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 	size_t	j;
 
 	i = 0;
-	if (!haystack && n == 0)
+	if (!haystack && needle && n == 0)
 		return (NULL);
 	if (needle[0] == '\0')
 		return ((char *)haystack);

@@ -6,7 +6,7 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:44 by inmili            #+#    #+#             */
-/*   Updated: 2024/01/09 18:04:59 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/12 11:44:16 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,38 +33,49 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 }
 
 /*
-// char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
-// {
-// 	size_t	i;
-// 	char	*str;
-// 	char	*result;
+char fct(unsigned int i, char c)
+{
+    if(i % 2)
+        return(c + ('A' - 'a'));
+    return (c);
+}
+int main(void)
+{
+    char s[] = "abcdefghi"; 
+    printf("%s   ",ft_strmapi(s, fct));
+    return 0;
+}
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	size_t	i;
+	char	*str;
+	char	*result;
 
-// 	if (!s)
-// 		return (NULL);
-// 	str = str_new(str_len(s));
-// 	if (!str)
-// 		return (NULL);
-// 	i = 0;
-// 	result = str;
-// 	while (*s)
-// 		*str++ = f(i++, *s++);
-// 	*str = '\0';
-// 	return (result)
-// int plus(int n)
-// {
-//     return (n + 1);
-// }
-// int sum(int a, int (*f)(int))
-// {
-//     a = f(a);
-//     return (a + 1);
-// }
+	if (!s)
+		return (NULL);
+	str = str_new(str_len(s));
+	if (!str)
+		return (NULL);
+	i = 0;
+	result = str;
+	while (*s)
+		*str++ = f(i++, *s++);
+	*str = '\0';
+	return (result)
+int plus(int n)
+{
+    return (n + 1);
+}
+int sum(int a, int (*f)(int))
+{
+    a = f(a);
+    return (a + 1);
+}
+int main(void)
+{
+   int c = 5;
+   int (*p)(int, int(*)(int)) = &sum;
 
-// int main(void)
-// {
-//    int c = 5;
-//    int (*p)(int, int(*)(int)) = &sum;
-
-//     printf("%d ",p(c, &plus));
-//     return (0);
-// }*/
+    printf("%d ",p(c, &plus));
+    return (0);
+//}*/
