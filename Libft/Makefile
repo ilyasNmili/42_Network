@@ -6,7 +6,7 @@
 #    By: inmili <inmili@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 12:28:27 by inmili            #+#    #+#              #
-#    Updated: 2024/01/13 14:30:54 by inmili           ###   ########.fr        #
+#    Updated: 2024/01/13 18:08:17 by inmili           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ B_OBJS			= ${SRCS_BONUS:.c=.o}
 all: 	${NAME}
 
 ${NAME}:	${OBJS}
-	ar rcs ${NAME} $<
+	ar rcs ${NAME} $^
 %o: %c libft.h
 	${CC} ${CFLAGS} -c $< -o $@
 
