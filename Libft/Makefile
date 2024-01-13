@@ -6,7 +6,7 @@
 #    By: inmili <inmili@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 12:28:27 by inmili            #+#    #+#              #
-#    Updated: 2024/01/12 17:12:38 by inmili           ###   ########.fr        #
+#    Updated: 2024/01/13 14:30:54 by inmili           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c    \
 					ft_putnbr_fd.c 
 
 SRCS_BONUS	= 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-			ft_lstclear_bonus.c ft_lstiter_bonus.c 
+			ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
 OBJS			= ${SRCS:.c=.o}
 B_OBJS			= ${SRCS_BONUS:.c=.o}
@@ -34,12 +34,12 @@ B_OBJS			= ${SRCS_BONUS:.c=.o}
 all: 	${NAME}
 
 ${NAME}:	${OBJS}
-
+	ar rcs ${NAME} $<
 %o: %c libft.h
 	${CC} ${CFLAGS} -c $< -o $@
-	ar rcs ${NAME} $@
 
-bonus:	${B_OBJS}
+bonus: ${OBJS} ${B_OBJS}
+	ar rcs ${NAME} $^
 
 clean:
 	${RM} ${OBJS} ${B_OBJS}
@@ -49,4 +49,4 @@ fclean:	clean
 
 re:	fclean all
 
-.PHONY : all clean fclean re all bonus
+.PHONY : all clean fclean re bonus

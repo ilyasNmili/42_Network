@@ -6,7 +6,7 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:18:44 by inmili            #+#    #+#             */
-/*   Updated: 2024/01/12 11:44:16 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/13 10:51:34 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 char fct(unsigned int i, char c)
 {
     if(i % 2)
+        return(c + ('A' - 'a'));
+    return (c);
+}
+char fct1(unsigned int i, char c)
+{
+    if(i % 3)
         return(c + ('A' - 'a'));
     return (c);
 }
