@@ -6,7 +6,7 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:46 by inmili            #+#    #+#             */
-/*   Updated: 2024/01/21 11:24:08 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/21 11:25:43 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (size);
-}
-
-int main(void)
-{
-	fclose(stdout);
-	int f = printf("h");
-	dprintf(2, "%i", f);
 }
