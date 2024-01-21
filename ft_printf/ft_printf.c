@@ -6,7 +6,7 @@
 /*   By: inmili <inmili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:46 by inmili            #+#    #+#             */
-/*   Updated: 2024/01/19 12:09:41 by inmili           ###   ########.fr       */
+/*   Updated: 2024/01/21 11:24:08 by inmili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	size = 0;
 	va_start(args, str);
+	if (write(1, 0, 0) == -1)
+		return (-1);
 	while (str[i])
 	{
 		if ((str[i] == '%') && str[++i])
@@ -56,4 +58,11 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (size);
+}
+
+int main(void)
+{
+	fclose(stdout);
+	int f = printf("h");
+	dprintf(2, "%i", f);
 }

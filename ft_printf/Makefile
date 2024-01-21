@@ -6,7 +6,7 @@
 #    By: inmili <inmili@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 18:59:08 by inmili            #+#    #+#              #
-#    Updated: 2024/01/19 11:29:43 by inmili           ###   ########.fr        #
+#    Updated: 2024/01/19 12:36:13 by inmili           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 
-SRCS = ft_printf.c ft_putchar.c ft_putunsigned.c ft_putstr.c ft_putnbr.c ft_puthexa.c ft_putadress.c
+SRCS =	ft_printf.c ft_putchar.c ft_putunsigned.c ft_putstr.c \
+		ft_putnbr.c ft_puthexa.c ft_putadress.c
 
 OBJS = ${SRCS:.c=.o}
 
